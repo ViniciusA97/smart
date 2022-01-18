@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="202112260000000" author="VINICIUS_QUEIROZ">
+
+        <preConditions onFail="CONTINUE">
+            <not>
+                <tableExists tableName="T_STORE"/>
+            </not>
+        </preConditions>
+
+        <createSequence sequenceName="S_ID_STORE" incrementBy="1" startValue="1"/>
+
+        <createTable tableName="T_STORE">
+
+            <column name="ID" type="int" defaultValueSequenceNext="S_ID_STORE">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="NAME" type="varchar(50)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+
+            <column name="ID_TYPESTORE" type="BIGINT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="DESCRIPTION" type="VARCHAR(150)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="CNPJ" type="VARCHAR(14)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="ADDRESS" type="VARCHAR(100)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="STATUSSTORE" type="VARCHAR(1)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

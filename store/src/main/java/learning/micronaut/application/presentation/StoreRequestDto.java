@@ -1,0 +1,78 @@
+package learning.micronaut.application.presentation;
+
+import learning.micronaut.domain.StatusStore;
+
+public class StoreRequestDto {
+
+    private String name;
+
+    private TypeStoreDto typeStore;
+
+    private String description;
+
+    private String cnpj;
+
+    private String  address;
+
+    private StatusStore statusStore;
+
+    public StoreRequestDto(String name, TypeStoreDto typeStore, String description, String cnpj, String address, StatusStore statusStore) {
+        this.name = name;
+        this.typeStore = typeStore;
+        this.description = description;
+        this.cnpj = cnpj;
+        this.address = address;
+        this.statusStore = statusStore;
+    }
+
+    public StoreRequestDto() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public TypeStoreDto getTypeStore() {
+        return typeStore;
+    }
+
+    public void setTypeStore(TypeStoreDto typeStore) {
+        this.typeStore = typeStore;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public StatusStore getStatusStore() {
+        return statusStore;
+    }
+
+    public void setStatusStore(StatusStore statusStore) {
+        this.statusStore = statusStore;
+    }
+}

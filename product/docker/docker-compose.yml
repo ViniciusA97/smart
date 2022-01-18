@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  db_nta_slack:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: product
+      POSTGRES_PASSWORD: product-mcrnt
+      POSTGRES_DB: product
+    volumes:
+      - psql:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8081
+
+  rabbitmq:
+    image: library/rabbitmq:3.9.1-management
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+
+volumes:
+  psql:

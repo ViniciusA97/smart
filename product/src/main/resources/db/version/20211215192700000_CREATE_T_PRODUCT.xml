@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20211215192700000_CREATE_T_PRODUCT" author="VINICIUS_QUEIROZ">
+
+        <preConditions onFail="CONTINUE">
+            <not>
+                <tableExists tableName="T_PRODUCT"/>
+            </not>
+        </preConditions>
+
+        <createSequence sequenceName="S_PRODUCT_ID" incrementBy="1" startValue="1"/>
+
+        <createTable tableName="T_PRODUCT">
+
+            <column name="ID" type="int" defaultValueSequenceNext="S_PRODUCT_ID">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+
+            <column name="NAME" type="varchar(50)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+
+            <column name="PRICE" type="NUMERIC">
+                <constraints nullable="false" unique="false"/>
+            </column>
+
+            <column name="DESCRIPTION" type="VARCHAR(255)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+            <column name="IDLOJA" type="BIGINT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
